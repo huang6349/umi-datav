@@ -1,4 +1,15 @@
-.grid {
+.layout-grid {
   background-color: rgb(255, 255, 255);
   border: 1px solid #e8e8e8;
+}
+
+.layout-grid-item {
+  position: relative;
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }

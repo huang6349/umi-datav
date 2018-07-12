@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import {
+  SizeMe,
+  withSize,
+} from 'react-sizeme';
 import Layout from 'react-grid-layout';
-import SizeMe from 'react-sizeme';
 
 import { map } from 'lodash';
 
 import styles from './styles.css';
 
 class LayoutView extends Component {
+
   static propTypes = {
     /** 可视化图形的布局数据 */
     layouts: PropTypes.arrayOf(PropTypes.shape({
@@ -32,46 +36,71 @@ class LayoutView extends Component {
     /** 可视化图形的元素位置发生变化的回调函数 */
     onLayoutChange: PropTypes.func,
   }
+
   static defaultProps = {
     layouts: [],
     isDesign: false,
   }
+
   _generator() {
+
     const {
       layouts,
       isDesign,
     } = this.props;
+
     return map(layouts, (item, i) => {
+
       const {
         position,
         dom,
       } = item;
+
+      function InternalComponent(props) {
+        return React.cloneElement(dom || <div />, {
+          ...props,
+        });
+      }
+
+      function renderItem(props) {
+        return (
+          <div className={styles['layout-grid-item']}>
+            <InternalComponent {...props} />
+          </div>
+        );
+      }
+
       return (
         <section
-          className={styles['grid']}
+          className={styles['layout-grid']}
           key={i}
           data-grid={{
             ...position,
             static: !isDesign,
           }}>
-          {dom || <div />}
+          <SizeMe monitorHeight={true} render={renderItem} />
         </section>
       );
     });
   }
+
   render() {
     this._generator = this._generator.bind(this);
+
     const {
+      size,
       onLayoutChange,
     } = this.props;
-    const { width } = this.props.size;
+    const { width } = size;
+
     const layoutProps = {
       width: width,
       onLayoutChange: onLayoutChange,
       children: this._generator(),
     };
+
     return <Layout {...layoutProps} />;
   }
 }
 
-export default SizeMe()(LayoutView);
+export default withSize()(LayoutView);
