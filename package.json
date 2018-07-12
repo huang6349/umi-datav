@@ -7,6 +7,14 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "echarts": "^4.1.0",
+    "echarts-for-react": "^2.0.13",
+    "lodash": "^4.17.10",
+    "normalize.css": "^8.0.0",
+    "prop-types": "^15.6.2",
+    "react-custom-scrollbars": "^4.2.1",
+    "react-grid-layout": "^0.16.6",
+    "react-resize-detector": "^3.0.1",
     "umi": "^1.0.0",
     "umi-plugin-dva": "^0.7.1"
   },

@@ -1,12 +1,23 @@
 # umi-datav
 
-[![](https://img.shields.io/badge/umi-^1.0.0-blue.svg?style=flat-square)](https://github.com/umijs/umi/)
+[![](https://img.shields.io/badge/umi-^1.0.0-blue.svg?style=flat-square)](https://github.com/umijs/umi)
 
 数据可视化
 
 ## 目录
 
 - [初始化项目](https://github.com/huang6349/umi-learn)
+
+## 组件库
+
+- [antd](https://github.com/ant-design/ant-design)
+- [normalize.css](https://github.com/necolas/normalize.css)
+- [lodash](https://github.com/lodash/lodash)
+- [react-custom-scrollbars](https://github.com/malte-wessel/react-custom-scrollbars)
+- [react-grid-layout](https://github.com/STRML/react-grid-layout)
+- [react-resize-detector](https://github.com/maslianok/react-resize-detector)
+- [echarts](https://github.com/apache/incubator-echarts)
+- [echarts-for-react](https://github.com/hustcc/echarts-for-react)
 
 ## 相关教程
 
