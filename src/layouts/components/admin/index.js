@@ -22,7 +22,12 @@ class AdminLayout extends Component {
       {
         route: '/',
         icon: 'home',
-        name: '首页',
+        name: '首页模型',
+      },
+      {
+        route: '/grid',
+        icon: 'profile',
+        name: '布局模型',
       },
     ];
   }

@@ -16,6 +16,7 @@
 - [react-custom-scrollbars](https://github.com/malte-wessel/react-custom-scrollbars)
 - [react-grid-layout](https://github.com/STRML/react-grid-layout)
 - [react-resize-detector](https://github.com/maslianok/react-resize-detector)
+- [react-sizeme](https://github.com/ctrlplusb/react-sizeme)
 - [echarts](https://github.com/apache/incubator-echarts)
 - [echarts-for-react](https://github.com/hustcc/echarts-for-react)
 
