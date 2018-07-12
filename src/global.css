@@ -3,5 +3,12 @@
 @import url("../node_modules/react-resizable/css/styles.css");
 
 :global(#root) {
+  position: relative;
   height: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
