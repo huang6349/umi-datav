@@ -2,22 +2,25 @@ import React, { Component } from 'react';
 import {
   Layout,
 } from 'antd';
+import { connect } from 'dva';
 import Scrollbars from 'react-custom-scrollbars';
 import router from 'umi/router';
 
 import {
   Header,
+  Version,
+} from '../../../components';
+import {
   Menu,
 } from './components';
 
 import styles from './styles.css';
 
-class AdminLayout extends Component {
+class LayoutView extends Component {
+
   constructor(props) {
     super(props);
 
-    this._title = '数据可视化平台';
-    this._v = '1.0.0 bata1';
     this._menus = [
       {
         route: '/',
@@ -34,21 +37,32 @@ class AdminLayout extends Component {
         icon: 'profile',
         name: 'Echarts模型',
       },
+      {
+        route: '/design/1',
+        icon: 'form',
+        name: '设计器模型',
+      },
     ];
   }
+
   _handleMenuClick({ key }) {
     router.push(key);
   }
+
   render() {
     this._handleMenuClick = this._handleMenuClick.bind(this);
+
     const {
       location,
       children,
+      global,
     } = this.props;
+    const { title, v } = global;
+
     return (
       <Layout className={styles['layout']}>
         <Layout.Header className={styles['header']}>
-          <Header title={this._title} />
+          <Header pathname={location['pathname']} title={title} />
         </Layout.Header>
         <Layout>
           <Layout.Sider width={240}>
@@ -63,7 +77,7 @@ class AdminLayout extends Component {
               <Scrollbars>{children}</Scrollbars>
             </Layout.Content>
             <Layout.Footer className={styles['footer']}>
-              <div className={styles['v']}>v{this._v}</div>
+              <Version v={v} />
             </Layout.Footer>
           </Layout>
         </Layout>
@@ -72,4 +86,6 @@ class AdminLayout extends Component {
   }
 }
 
-export default AdminLayout;
+export default connect(function (state) {
+  return { global: state['global'] };
+})(LayoutView);
