@@ -1,13 +1,13 @@
 # Echarts
 
-## API - DataVEcharts
+## API - [DataVEcharts](../src/components/layout-echarts)
 
 | 成员 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | option | Echarts的数据对象 | object | {} |
 | size | Echarts的布局尺寸 | [SizeTypes](#sizetypes) | - |
 
-## API - DataVLayoutEcharts
+## API - [DataVLayoutEcharts](../src/components/layout-grid-echarts)
 
 | 成员 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |

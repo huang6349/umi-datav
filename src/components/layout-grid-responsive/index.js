@@ -72,7 +72,6 @@ const LayoutsProps = PropTypes.shape({
 class LayoutView extends Component {
 
   static propTypes = {
-    /** 可视化图形的布局数据 */
     layouts: PropTypes.arrayOf(LayoutsProps),
     ...IsDesignProps,
     ...OnLayoutChangeProps,
