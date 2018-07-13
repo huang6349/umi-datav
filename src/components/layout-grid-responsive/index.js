@@ -42,6 +42,24 @@ class LayoutView extends Component {
     isDesign: false,
   }
 
+  /**
+   * 新增一个布局
+   * 
+   * @param {Number} length 已存在的布局元素个数
+   */
+  static increase(length = 0) {
+    const i = length, w = 4, h = 2;
+    return {
+      position: {
+        x: Number((i * w) % 12),
+        y: Math.floor(i / 6) * h,
+        w: Number(w),
+        h: Number(h),
+        i: i.toString(),
+      },
+    };
+  }
+
   _generator() {
 
     const {
