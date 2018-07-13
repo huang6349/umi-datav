@@ -2,8 +2,8 @@
 
 ## 源码
 
-[DataVEcharts](../src/components/layout-echarts)
-[DataVLayoutEcharts](../src/components/layout-grid-echarts)
+- [DataVEcharts](../src/components/layout-echarts)
+- [DataVLayoutEcharts](../src/components/layout-grid-echarts)
 
 ## 预览图
 
