@@ -13,7 +13,7 @@
 | --- | --- | --- | --- |
 | layouts | 可视化图形的布局数据 | [LayoutsProps](#layoutsprops)[] | [] |
 | isDesign | 是否为设计模式 | boolean | false |
-| onLayoutChange | 可视化图形的元素位置发生变化的回调函数 | Function([PlaceProps](#placeprops)) | - |
+| onLayoutChange | 可视化图形的元素位置发生变化的回调函数 | Function([PlaceProps](#placetypes)) | - |
 
 ## SizeTypes
 
