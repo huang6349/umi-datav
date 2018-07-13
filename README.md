@@ -8,6 +8,7 @@
 
 - [初始化项目](https://github.com/huang6349/umi-learn)
 - [自适应流布局](./docs/自适应流布局.md)
+- [Echarts](./docs/Echarts.md)
 
 ## 组件库
 

@@ -29,6 +29,11 @@ class AdminLayout extends Component {
         icon: 'profile',
         name: '布局模型',
       },
+      {
+        route: '/echarts',
+        icon: 'profile',
+        name: 'Echarts模型',
+      },
     ];
   }
   _handleMenuClick({ key }) {
