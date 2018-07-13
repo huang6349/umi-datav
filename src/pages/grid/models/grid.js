@@ -3,7 +3,7 @@ export default {
   state: {
     layouts: [
       {
-        position: {
+        place: {
           w: 8,
           h: 4,
           x: 0,
@@ -12,7 +12,7 @@ export default {
         },
       },
       {
-        position: {
+        place: {
           w: 4,
           h: 2,
           x: 8,
@@ -21,7 +21,7 @@ export default {
         },
       },
       {
-        position: {
+        place: {
           w: 4,
           h: 2,
           x: 8,
@@ -30,7 +30,7 @@ export default {
         },
       },
       {
-        position: {
+        place: {
           w: 4,
           h: 2,
           x: 0,
@@ -39,7 +39,7 @@ export default {
         },
       },
       {
-        position: {
+        place: {
           w: 4,
           h: 2,
           x: 4,
@@ -48,7 +48,7 @@ export default {
         },
       },
       {
-        position: {
+        place: {
           w: 4,
           h: 2,
           x: 8,

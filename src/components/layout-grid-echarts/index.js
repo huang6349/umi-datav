@@ -3,32 +3,29 @@ import PropTypes from 'prop-types';
 
 import { map } from 'lodash';
 
-import DataVLayout from '../layout-grid-responsive';
-import DataVEcharts from '../layout-echarts';
+import DataVLayout, {
+  PlaceProps,
+  IsDesignProps,
+  OnLayoutChangeProps,
+} from '../layout-grid-responsive';
+import DataVEcharts, {
+  OptionTypes,
+} from '../layout-echarts';
 
+/**
+ * 自适应流布局 - Echarts
+ */
 class LayoutView extends Component {
+
+  /** 可视化图形的布局数据 */
   static propTypes = {
     layouts: PropTypes.arrayOf(PropTypes.shape({
-      /** 元素布局位置 */
-      position: PropTypes.shape({
-        /** 元素宽度 */
-        w: PropTypes.number.isRequired,
-        /** 元素高度 */
-        h: PropTypes.number.isRequired,
-        /** 元素X坐标 */
-        x: PropTypes.number.isRequired,
-        /** 元素Y坐标 */
-        y: PropTypes.number.isRequired,
-        /** 元素标识 */
-        i: PropTypes.string.isRequired,
-      }).isRequired,
+      ...PlaceProps,
       /** Echarts的初始化数据 */
-      echarts: PropTypes.object.isRequired,
+      echarts: OptionTypes,
     })),
-    /** 是否为设计模式[只有在设计模式下，元素才可以进行拖拽] */
-    isDesign: PropTypes.bool,
-    /** 可视化图形的元素位置发生变化的回调函数 */
-    onLayoutChange: PropTypes.func,
+    ...IsDesignProps,
+    ...OnLayoutChangeProps,
   };
 
   static defaultProps = {

@@ -10,31 +10,72 @@ import { map } from 'lodash';
 
 import styles from './styles.css';
 
+/**
+ * 自适应流布局位置 - 类型检测申明
+ */
+export const PlaceTypes = PropTypes.shape({
+  /** 元素宽度 */
+  w: PropTypes.number.isRequired,
+  /** 元素高度 */
+  h: PropTypes.number.isRequired,
+  /** 元素X坐标 */
+  x: PropTypes.number.isRequired,
+  /** 元素Y坐标 */
+  y: PropTypes.number.isRequired,
+  /** 元素标识 */
+  i: PropTypes.string.isRequired,
+}).isRequired;
+
+/**
+ * 自适应流布局位置
+ */
+export const PlaceProps = {
+  place: PlaceTypes,
+};
+
+/**
+ * 是否为设计模式 - 类型检测申明
+ */
+export const IsDesignTypes = PropTypes.bool;
+
+/**
+ * 是否为设计模式
+ */
+export const IsDesignProps = {
+  /** 只有在设计模式下，元素才可以进行拖拽 */
+  isDesign: IsDesignTypes,
+};
+
+/**
+ * 可视化图形的元素位置发生变化的回调函数 - 类型检测申明
+ */
+export const OnLayoutChangeTypes = PropTypes.func;
+
+/**
+ * 可视化图形的元素位置发生变化的回调函数
+ */
+export const OnLayoutChangeProps = {
+  onLayoutChange: OnLayoutChangeTypes,
+};
+
+/**
+ * 可视化图形的布局数据
+ */
+const LayoutsProps = PropTypes.shape({
+  ...PlaceProps,
+  dom: PropTypes.element,
+});
+
+/**
+ * 自适应流布局
+ */
 class LayoutView extends Component {
 
   static propTypes = {
     /** 可视化图形的布局数据 */
-    layouts: PropTypes.arrayOf(PropTypes.shape({
-      /** 元素布局位置 */
-      position: PropTypes.shape({
-        /** 元素宽度 */
-        w: PropTypes.number.isRequired,
-        /** 元素高度 */
-        h: PropTypes.number.isRequired,
-        /** 元素X坐标 */
-        x: PropTypes.number.isRequired,
-        /** 元素Y坐标 */
-        y: PropTypes.number.isRequired,
-        /** 元素标识 */
-        i: PropTypes.string.isRequired,
-      }).isRequired,
-      /** 元素内容 */
-      dom: PropTypes.element,
-    })),
-    /** 是否为设计模式[只有在设计模式下，元素才可以进行拖拽] */
-    isDesign: PropTypes.bool,
-    /** 可视化图形的元素位置发生变化的回调函数 */
-    onLayoutChange: PropTypes.func,
+    layouts: PropTypes.arrayOf(LayoutsProps),
+    ...IsDesignProps,
+    ...OnLayoutChangeProps,
   }
 
   static defaultProps = {
@@ -70,7 +111,7 @@ class LayoutView extends Component {
     return map(layouts, (item, i) => {
 
       const {
-        position,
+        place,
         dom,
       } = item;
 
@@ -93,7 +134,7 @@ class LayoutView extends Component {
           className={styles['layout-grid']}
           key={i}
           data-grid={{
-            ...position,
+            ...place,
             static: !isDesign,
           }}>
           <SizeMe monitorHeight={true} render={renderItem} />
