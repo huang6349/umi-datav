@@ -14,6 +14,7 @@ class LayoutView extends Component {
 
   render() {
     const {
+      location,
       children,
       global,
     } = this.props;
@@ -22,7 +23,7 @@ class LayoutView extends Component {
     return (
       <Layout className={styles['layout']}>
         <Layout.Header className={styles['header']}>
-          <Header title={title} />
+          <Header pathname={location['pathname']} title={title} />
         </Layout.Header>
         <Layout.Content className={styles['content']}>
           {children}
